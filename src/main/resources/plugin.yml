@@ -1,0 +1,9 @@
+name: RedCrates
+main: com.redmancometh.redcrates.RedCrates
+version: 1.0
+description: "Crates Plugin"
+depend: [ConfigCore, RedMenus]
+commands:
+  crates:
+    description: Open menu.
+    usage: Open the crafting menu.

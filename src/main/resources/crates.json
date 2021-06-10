@@ -1,0 +1,93 @@
+{
+	"update-period": 5,
+	"reel-two-interval": 2,
+	"reel-three-interval": 3,
+	"reel-bonus-interval": 5,
+	"total-intervals": 20,
+	"reward-menu-name": "MENU",
+	"slot-template": {
+		"panes":[
+			{
+				"color": 1,
+				"indexes":[0,1,2,3,4,5,6,7,8]
+			},
+			{
+				"color":4,
+				"indexes":[]
+			}
+		]
+	},
+	"crates": [
+		{
+			"crate-block": "ENDER_CHEST",
+			"name": "basiccrate",
+			"display-name": "Basic Crate",
+			"location": {
+				"x": 5,
+				"y": 75,
+				"z": 5,
+				"world": "warzone"
+			},
+			"crate-item": {
+				"name": "&8Basic Crate",
+				"lore": [
+					"lore one"
+				],
+				"material": "TRIPWIRE_HOOK"
+			},
+			"rewards": [
+				{
+					"name": "Fifty Bucks",
+					"material": "IRON_INGOT",
+					"commands": [
+						"eco give %p% 50"
+					],
+					"chance": 5
+				},
+				{
+					"name": "FOUR HUNDRED Bucks",
+					"material": "IRON_SWORD",
+					"commands": [
+						"eco give %p% 50"
+					],
+					"chance": 5
+				},
+				{
+					"name": "NINE HUNDRED Bucks",
+					"material": "DIAMOND_SWORD",
+					"commands": [
+						"eco give %p% 50"
+					],
+					"chance": 15
+				},
+				{
+					"name": "NINE HUNDRED Bucks",
+					"material": "PAPER",
+					"commands": [
+						"eco give %p% 50"
+					],
+					"chance": 15
+				},
+				{
+					"name": "NINE HUNDRED Bucks",
+					"material": "ENDER_CHEST",
+					"commands": [
+						"eco give %p% 50"
+					],
+					"chance": 15
+				},
+				{
+					"name": "Hundred Bucks",
+					"material": "GOLD_INGOT",
+					"commands": [
+						"eco give %p% 150"
+					],
+					"chance": 20
+				}
+			]
+		}
+	],
+	"messages": {
+		"got-reward-message": ["Congratulations %p% you received %n% congratulations!"]
+	}
+}
