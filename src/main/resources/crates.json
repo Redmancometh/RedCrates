@@ -4,96 +4,212 @@
 	"reel-three-interval": 3,
 	"reel-bonus-interval": 5,
 	"total-intervals": 20,
-	"reward-menu-name": "MENU",
+	"reward-menu-name": "CRATES",
 	"no-reward": {
-		"name": "&4No Reward",
+		"name": "&4&nNo Reward!",
+		"commands": [],
 		"material": "BARRIER",
-		"lore": ["You don't win anything!"]
+		"lore": []
 	},
 	"slot-template": {
 		"panes":[
 			{
-				"color": 1,
-				"indexes":[0,1,2,3,4,5,6,7,8]
+				"color": 5,
+				"indexes":[18,20,22,24,26]
 			},
 			{
-				"color":4,
-				"indexes":[]
+				"color": 7,
+				"indexes":[0,1,2,3,4,5,6,7,8,36,37,38,39,41,42,43,44]
+			},
+			{
+				"color": 14,
+				"indexes":[9,11,13,15,17,27,29,31,33,35]
 			}
 		]
 	},
 	"crates": [
 		{
-			"bonus-fail-chance": 80,
+			"bonus-fail-chance": 90,
 			"crate-block": "ENDER_CHEST",
-			"name": "basiccrate",
-			"display-name": "Basic Crate",
+			"name": "votecrate",
+			"display-name": "&a&nVote Crate",
 			"location": {
 				"x": 5,
 				"y": 75,
 				"z": 5,
-				"world": "warzone"
+				"world": "world"
 			},
 			"crate-item": {
-				"name": "&8Basic Crate",
+				"name": "&a&k:&f&k:&a &nVoting Charm&f &k:&a&k:",
 				"lore": [
-					"lore one"
+					"",
+					" &7&oA mysterious charm that was gathered to",
+					" &7&obring &nextreme riches&7&o to the ones that found this..",
+					"",
+					" &7&o(( ~ &f&oRight-Click &a&o&nVote Crate&f&o to Open &7&o~ ))"
 				],
-				"material": "TRIPWIRE_HOOK"
+				"material": "BOOK"
 			},
-			"rewards": [
+			"bonus-rewards": [
 				{
-					"name": "Fifty Bucks",
-					"material": "IRON_INGOT",
+					"name": "&f&lCASH &7&l⏐ &a&l$50,000,000",
+					"material": "EMERALD",
 					"commands": [
-						"eco give %p% 50"
+						"banknote give %p% 50000000"
 					],
-					"chance": 5
+					"chance": 4
 				},
 				{
-					"name": "FOUR HUNDRED Bucks",
-					"material": "IRON_SWORD",
+					"name": "&f&lMOBCOINS &6&l⏐ &e&l☀10,000",
+					"material": "DOUBLE_PLANT",
 					"commands": [
-						"eco give %p% 50"
+						"mobcoins give %p% 10000"
 					],
-					"chance": 5
+					"chance": 4
 				},
 				{
-					"name": "NINE HUNDRED Bucks",
-					"material": "DIAMOND_SWORD",
-					"commands": [
-						"eco give %p% 50"
-					],
-					"chance": 15
-				},
-				{
-					"name": "NINE HUNDRED Bucks",
+					"name": "&e&lRANK &4&l⏐ &7&lSPARK &7(Voucher)",
 					"material": "PAPER",
 					"commands": [
-						"eco give %p% 50"
+						"loot %p% SparkRank"
 					],
-					"chance": 15
+					"chance": 1
 				},
 				{
-					"name": "NINE HUNDRED Bucks",
-					"material": "ENDER_CHEST",
+					"name": "&f&lx1 &4&l⏐ &c&lMONTHLY CRATE",
+					"material": "ENDER_PORTAL_FRAME",
 					"commands": [
-						"eco give %p% 50"
+						"mcrate give %p% Monthly 1"
 					],
-					"chance": 15
+					"chance": 1
+				}
+			],
+			"rewards": [
+				{
+					"name": "&6&l2x LEGENDARY &e&lBOOK &7&o(( &f&oClick to &6&oredeem &7&o))",
+					"material": "BOOK",
+					"commands": [
+						"loot %p% enchanttier|3 2"
+					],
+					"chance": 2
 				},
 				{
-					"name": "Hundred Bucks",
-					"material": "GOLD_INGOT",
+					"name": "&2&l3x RARE &a&lBOOK &7&o(( &f&oClick to &2&oredeem &7&o))",
+					"material": "BOOK",
 					"commands": [
-						"eco give %p% 150"
+						"loot %p% enchanttier|2 3"
 					],
-					"chance": 20
+					"chance": 3
+				},
+				{
+					"name": "&2&l1x RARE &a&lBOOK &7&o(( &f&oClick to &2&oredeem &7&o))",
+					"material": "BOOK",
+					"commands": [
+						"loot %p% enchanttier|2 1"
+					],
+					"chance": 6
+				},
+				{
+					"name": "&f&l2x &7&l⏐ &4&lF&c&lI&4&lR&c&lE &4&lCHARM",
+					"material": "ENCHANTED_BOOK",
+					"commands": [
+						"crate gk %p% Fire 2"
+					],
+					"chance": 2
+				},
+				{
+					"name": "&f&l1x &7&l⏐ &e&lCOW SPAWNER",
+					"material": "MOB_SPAWNER",
+					"commands": [
+						"silkspawner give %p% Cow 1"
+					],
+					"chance": 7
+				},
+				{
+					"name": "&f&l1x &7&l⏐ &e&lPIG SPAWNER",
+					"material": "MOB_SPAWNER",
+					"commands": [
+						"silkspawner give %p% Pig 1"
+					],
+					"chance": 7
+				},
+				{
+					"name": "&f&l1x &7&l⏐ &e&lENDERMAN SPAWNER",
+					"material": "MOB_SPAWNER",
+					"commands": [
+						"silkspawner give %p% Enderman 1"
+					],
+					"chance": 7
+				},
+				{
+					"name": "&f&l1x &7&l⏐ &e&lBLAZE SPAWNER",
+					"material": "MOB_SPAWNER",
+					"commands": [
+						"silkspawner give %p% Blaze 1"
+					],
+					"chance": 7
+				},
+				{
+					"name": "&f&l1x &7&l⏐ &e&lZOMBIE SPAWNER",
+					"material": "MOB_SPAWNER",
+					"commands": [
+						"silkspawner give %p% Zombie 1"
+					],
+					"chance": 7
+				},
+				{
+					"name": "&f&lCASH &7&l⏐ &a&l$2,000,000",
+					"material": "EMERALD",
+					"commands": [
+						"banknote give %p% 2000000"
+					],
+					"chance": 8
+				},
+				{
+					"name": "&f&lCASH &7&l⏐ &a&l$6,000,000",
+					"material": "EMERALD",
+					"commands": [
+						"banknote give %p% 6000000"
+					],
+					"chance": 6
+				},
+				{
+					"name": "&f&lMOBCOINS &6&l⏐ &e&l☀2,000",
+					"material": "DOUBLE_PLANT",
+					"commands": [
+						"mobcoins give %p% 2000"
+					],
+					"chance": 7
+				},
+				{
+					"name": "&f&lMOBCOINS &6&l⏐ &e&l☀4,000",
+					"material": "DOUBLE_PLANT",
+					"commands": [
+						"mobcoins give %p% 4000"
+					],
+					"chance": 6
+				},
+				{
+					"name": "&f&lMOBCOINS &6&l⏐ &e&l☀6,000",
+					"material": "DOUBLE_PLANT",
+					"commands": [
+						"mobcoins give %p% 6000"
+					],
+					"chance": 5
+				},
+				{
+					"name": "&f&lx1 &4&l⏐ &c&lMONTHLY CRATE",
+					"material": "ENDER_PORTAL_FRAME",
+					"commands": [
+						"mcrate give %p% Monthly 1"
+					],
+					"chance": 1
 				}
 			]
 		}
 	],
 	"messages": {
+		"got-bonus-message": ["You got %n% from the bonus reel!"],
 		"got-reward-message": ["Congratulations %p% you received %n% congratulations!"]
 	}
 }
