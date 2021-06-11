@@ -5,6 +5,11 @@
 	"reel-bonus-interval": 5,
 	"total-intervals": 20,
 	"reward-menu-name": "MENU",
+	"no-reward": {
+		"name": "&4No Reward",
+		"material": "BARRIER",
+		"lore": ["You don't win anything!"]
+	},
 	"slot-template": {
 		"panes":[
 			{
@@ -19,6 +24,7 @@
 	},
 	"crates": [
 		{
+			"bonus-fail-chance": 80,
 			"crate-block": "ENDER_CHEST",
 			"name": "basiccrate",
 			"display-name": "Basic Crate",

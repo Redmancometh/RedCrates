@@ -1,5 +1,6 @@
 package com.redmancometh.redcrates.listeners;
 
+import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -19,16 +20,16 @@ public class CrateListener implements Listener {
 		Block b = e.getClickedBlock();
 		if (item == null || b == null)
 			return;
-		System.out.println("NOT NULL");
 		Player p = e.getPlayer();
 		CratesConfig cfg = RedCrates.getInstance().cfg();
 		for (Crate crate : cfg.getCrates()) {
-			System.out.println("CHECKING CRATE");
-			System.out.println("ISITEM: " + crate.getCrateItem().isItem(item));
 			if (crate.getCrateBlock() != b.getType() || !crate.getCrateItem().isItem(item))
 				continue;
-			System.out.println("ITS A CHEST...");
 			e.setCancelled(true);
+			if (item.getAmount() > 1)
+				item.setAmount(item.getAmount() - 1);
+			else
+				p.setItemInHand(new ItemStack(Material.AIR));
 			RewardMenu menu = new RewardMenu(crate);
 			menu.open(p);
 		}

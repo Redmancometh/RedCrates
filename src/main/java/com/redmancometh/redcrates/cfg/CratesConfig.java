@@ -9,6 +9,7 @@ import lombok.Data;
 @Data
 public class CratesConfig {
 	private List<Crate> crates;
+	private CrateReward noReward;
 	private MessageConfig messages;
 	private MenuTemplate slotTemplate;
 	private String rewardMenuName;

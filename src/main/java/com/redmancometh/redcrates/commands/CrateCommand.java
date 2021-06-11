@@ -9,13 +9,16 @@ import com.redmancometh.redcrates.RedCrates;
 import com.redmancometh.redcrates.cfg.Crate;
 import com.redmancometh.redcrates.cfg.CratesConfig;
 
+import lombok.Data;
+
 public class CrateCommand implements CommandExecutor {
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		Player p = (Player) sender;
+		if (!p.isOp())
+			return true;
 		CratesConfig cfg = RedCrates.getInstance().cfg();
-		System.out.println("CONFIG: " + cfg);
 		for (Crate crate : cfg.getCrates()) {
 			if (crate.getName().equalsIgnoreCase(args[0])) {
 				p.getInventory().addItem(crate.getCrateItem().buildItem());
@@ -24,4 +27,8 @@ public class CrateCommand implements CommandExecutor {
 		return true;
 	}
 
+	@Data
+	public class PojoTest {
+		private String test;
+	}
 }

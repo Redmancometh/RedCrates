@@ -6,5 +6,5 @@ import lombok.Data;
 
 @Data
 public class MessageConfig {
-	private List<String> gotRewardMessage;
+	private List<String> gotRewardMessage, gotBonusMessage;
 }

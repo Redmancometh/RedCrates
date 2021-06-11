@@ -3,7 +3,9 @@ main: com.redmancometh.redcrates.RedCrates
 version: 1.0
 description: "Crates Plugin"
 depend: [ConfigCore, RedMenus]
+load: POSTWORLD
 commands:
   crates:
+    aliases: [givecratekey, crate]
     description: Open menu.
     usage: Open the crafting menu.

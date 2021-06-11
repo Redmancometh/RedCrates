@@ -10,8 +10,13 @@ public class CrateController {
 
 	public void init() {
 		cfgMan.init();
+		System.out.println("INITIALIZING CONTROLLER");
 		cfgMan.getConfig().getCrates().forEach((crate) -> {
+			System.out.println("SETTING CRATE BLOCK");
 			crate.getLocation().getBlock().setType(crate.getCrateBlock());
+			for (int x = 0; x < 5; x++) {
+				System.out.println(crate.getLocation().getBlock());
+			}
 		});
 	}
 }
