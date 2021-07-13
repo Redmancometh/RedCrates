@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map.Entry;
 
+import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.Material;
 
@@ -24,6 +25,7 @@ public class Crate {
 	private double bonusFailChance;
 	private WeightedChooser<CrateReward> rewardBucket = new WeightedChooser();
 	private WeightedChooser<CrateReward> bonusBucket = new WeightedChooser();
+	private Effect effect = Effect.MOBSPAWNER_FLAMES;
 	@Expose(serialize = false, deserialize = false)
 	private CrateReward[] shuffledRewards;
 	@Expose(serialize = false, deserialize = false)
@@ -66,7 +68,7 @@ public class Crate {
 	}
 
 	public CrateReward getBonusReward() {
-		return rewardBucket.getRandomElement();
+		return bonusBucket.getRandomElement();
 	}
 
 	public CrateReward getReward() {

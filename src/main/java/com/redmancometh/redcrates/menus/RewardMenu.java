@@ -7,8 +7,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 
@@ -18,6 +18,7 @@ import com.redmancometh.redcrates.cfg.CrateReward;
 import com.redmancometh.redcrates.cfg.CratesConfig;
 import com.redmancometh.redmenus.absraction.Menu;
 import com.redmancometh.redmenus.menus.MenuButton;
+import com.redmancometh.warcore.util.ItemUtil;
 
 import lombok.Getter;
 
@@ -43,13 +44,18 @@ public class RewardMenu extends Menu {
 	public void close(Player player) {
 		super.close(player);
 		if (!finishedSpin) {
+			if (spinner != null)
+				spinner.cancel();
 			for (int x = 0; x < 3; x++) {
 				giveReward(player, false);
 			}
 			giveReward(player, true);
+			player.updateInventory();
 			return;
 		}
 		giveSlotRewards(player);
+		player.playSound(player.getLocation(), Sound.CHEST_CLOSE, 1.5F, 1F);
+		player.updateInventory();
 	}
 
 	@Override
@@ -68,8 +74,9 @@ public class RewardMenu extends Menu {
 	}
 
 	public void constructMenu() {
+		CratesConfig cfg = RedCrates.getInstance().cfg();
 		MenuButton button = new MenuButton();
-		button.setConstructor((player) -> new ItemStack(Material.LEVER));
+		button.setConstructor((player) -> ItemUtil.buildItem(Material.LEVER, cfg.getLeverName(), cfg.getLeverLore()));
 		button.setAction((click, player) -> {
 			if (spinner != null)
 				return;
@@ -106,7 +113,6 @@ public class RewardMenu extends Menu {
 		List<String> commands = reward.getCommands();
 		commands.forEach(
 				(command) -> Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command.replace("%p%", p.getName())));
-		System.out.println(cfg.getMessages().getGotRewardMessage().get(0));
 		if (!bonus)
 			cfg.getMessages().getGotRewardMessage().forEach(
 					(line) -> p.sendMessage(line.replace("%p%", p.getName()).replace("%n%", reward.getName())));
@@ -155,6 +161,7 @@ public class RewardMenu extends Menu {
 
 		@Override
 		public void run() {
+			p.playSound(p.getLocation(), Sound.SUCCESSFUL_HIT, 1F, 1.5F);
 			elapsed++;
 			CratesConfig cfg = RedCrates.getInstance().cfg();
 			if (reelX.incrementAndGet() >= spinItems.get().length - 3)
